@@ -3,6 +3,10 @@
 data::data(std::string line) {
 
     std::cout << line << std::endl;
+    std::string diag = line.substr(line.find(','), line.find(','));
+    
+    _mean["diagnosis"] = fixed(diag[0] - 'B');
+    std::cout <<  "|| " << _mean["diagnosis"] << " ||" << std::endl;
 }
 
 data::~data() {
