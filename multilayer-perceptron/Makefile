@@ -1,4 +1,4 @@
-NAME			:=	PmergeMe
+NAME			:=	multilayet-perceptron
 NAME_PATH		:=	$(NAME)
 MAKEFLAGS		+=	--silent
 
@@ -9,7 +9,7 @@ ODIR			:=	obj/
 OBJ				:=	$(subst $(SDIR),$(ODIR), ${SRC:.cpp=.o})
 
 CC				:=	c++
-CFLG			:=	-Wall -Wextra -Werror -std=c++98
+CFLG			:=	-Wall -Wextra -Werror
 
 $(ODIR)%.o		: $(SDIR)%.cpp
 				mkdir -p $(subst $(SDIR),$(ODIR), $(shell dirname $<)/)

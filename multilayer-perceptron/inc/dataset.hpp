@@ -3,15 +3,15 @@
 # include <map>
 # include <fstream>
 # include <iostream>
-# include <fixed.hpp>
+# include "fixed.hpp"
 
 class data {
 
 private:
 
-    std::map<std::string, Fixed> _mean;
-    std::map<std::string, Fixed> _error;
-    std::map<std::string, Fixed> _worst;
+    std::map<std::string, fixed> _mean;
+    std::map<std::string, fixed> _error;
+    std::map<std::string, fixed> _worst;
 
 public:
 
@@ -27,7 +27,7 @@ private:
 
 public:
 
-    dataset(std::fstream stream);
+    dataset(std::string path);
     ~dataset();
 
 };

@@ -3,7 +3,7 @@
 # include <iostream>
 # include <cmath>
 
-class Fixed {
+class fixed {
 
 private:
 
@@ -12,13 +12,13 @@ private:
 
 public:
 
-	Fixed();
-	Fixed(const int fxd);
-	Fixed(const float fxd);
-	Fixed(Fixed const & fxd);
-	~Fixed();
+	fixed();
+	fixed(const int fxd);
+	fixed(const float fxd);
+	fixed(fixed const & fxd);
+	~fixed();
 
-	Fixed &	operator=(Fixed const & rhs);
+	fixed &	operator=(fixed const & rhs);
 
 	int		getRawBits( void ) const;
 	void	setRawBits( int const raw);
@@ -28,29 +28,29 @@ public:
 
 	int		power(int val, int pow) const;
 
-	bool operator>(Fixed const & rhs) const;
-	bool operator<(Fixed const & rhs) const;
-	bool operator<=(Fixed const & rhs) const;
-	bool operator>=(Fixed const & rhs) const;
-	bool operator==(Fixed const & rhs) const;
-	bool operator!=(Fixed const & rhs) const;
+	bool operator>(fixed const & rhs) const;
+	bool operator<(fixed const & rhs) const;
+	bool operator<=(fixed const & rhs) const;
+	bool operator>=(fixed const & rhs) const;
+	bool operator==(fixed const & rhs) const;
+	bool operator!=(fixed const & rhs) const;
 
-	Fixed operator+(Fixed const & rhs) const;
-	Fixed operator-(Fixed const & rhs) const;
-	Fixed operator*(Fixed const & rhs) const;
-	Fixed operator/(Fixed const & rhs) const;
+	fixed operator+(fixed const & rhs) const;
+	fixed operator-(fixed const & rhs) const;
+	fixed operator*(fixed const & rhs) const;
+	fixed operator/(fixed const & rhs) const;
 
-	Fixed	& operator++(void);
-	Fixed operator++(int);
+	fixed	& operator++(void);
+	fixed operator++(int);
 
-	Fixed & operator--(void);
-	Fixed operator--(int);
+	fixed & operator--(void);
+	fixed operator--(int);
 
-	static Fixed min(Fixed &nb1, Fixed &nb2);
-	static Fixed min(Fixed const &nb1, Fixed const &nb2);
+	static fixed min(fixed &nb1, fixed &nb2);
+	static fixed min(fixed const &nb1, fixed const &nb2);
 
-	static Fixed max(Fixed &nb1, Fixed &nb2);
-	static Fixed max(Fixed const &nb1, Fixed const &nb2);
+	static fixed max(fixed &nb1, fixed &nb2);
+	static fixed max(fixed const &nb1, fixed const &nb2);
 };
 
-std::ostream &	operator<<( std::ostream & os, Fixed const & oui);
+std::ostream &	operator<<( std::ostream & os, fixed const & oui);
