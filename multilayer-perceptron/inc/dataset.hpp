@@ -1,17 +1,21 @@
 #pragma once
 
 # include <map>
-# include <experimental/fixed_point>
+# include <fstream>
+# include <iostream>
+# include <fixed.hpp>
 
 class data {
 
 private:
 
-    std::map<std::string, double> _mean;
-    std::map<std::string, >
+    std::map<std::string, Fixed> _mean;
+    std::map<std::string, Fixed> _error;
+    std::map<std::string, Fixed> _worst;
 
+public:
 
-    data();
+    data(std::string);
     ~data();
 };
 
@@ -19,12 +23,11 @@ class dataset {
 
 private:
 
-    std::map<int, data> _dataset;
+    std::map<std::string, data *> _set;
 
 public:
 
-    dataset();
+    dataset(std::fstream stream);
     ~dataset();
-
 
 };
