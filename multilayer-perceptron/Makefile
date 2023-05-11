@@ -9,7 +9,7 @@ ODIR			:=	obj/
 OBJ				:=	$(subst $(SDIR),$(ODIR), ${SRC:.cpp=.o})
 
 CC				:=	c++
-CFLG			:=	-Wall -Wextra -Werror
+CFLG			:=	-Wall -Wextra -Werror -std=c++11
 
 $(ODIR)%.o		: $(SDIR)%.cpp
 				mkdir -p $(subst $(SDIR),$(ODIR), $(shell dirname $<)/)

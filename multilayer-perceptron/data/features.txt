@@ -1,0 +1,30 @@
+Mean radius
+Mean texture
+Mean perimeter
+Mean area 1001
+Mean smoothness
+Mean compactness
+Mean concavity
+Mean concave points
+Mean symmetry
+Mean fractal dimension
+Standard error of radius
+Standard error of texture
+Standard error of perimeter
+Standard error of area
+Standard error of smoothness
+Standard error of compactness
+Standard error of concavity
+Standard error of concave points
+Standard error of symmetry
+Standard error of fractal dimension
+Worst radius
+Worst texture
+Worst perimeter
+Worst area 2019
+Worst smoothness
+Worst compactness
+Worst concavity
+Worst concave points
+Worst symmetry
+Worst fractal dimension

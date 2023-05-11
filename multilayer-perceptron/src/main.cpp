@@ -2,11 +2,11 @@
 
 int main() {
 
-    std::string path;
+    // std::string path;
 
-    std::cout << "Please enter path to database: "; std::cin >> path;
+    // std::cout << "Please enter path to database: "; std::cin >> path;
 
-    dataset data(path);
+    dataset data("data/data.csv");
 
     return 0;
 }

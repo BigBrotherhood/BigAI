@@ -16,6 +16,7 @@ public:
 	fixed(const int fxd);
 	fixed(const float fxd);
 	fixed(fixed const & fxd);
+    fixed(std::string const & str);
 	~fixed();
 
 	fixed &	operator=(fixed const & rhs);

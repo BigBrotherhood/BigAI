@@ -178,3 +178,23 @@ fixed fixed::max(fixed const &nb1, fixed const &nb2) {
 	return (nb1.i > nb2.i ? nb1 : nb2);
 }
 
+
+fixed::fixed(std::string const & str)
+{
+    size_t pos = str.find('.');
+    if (pos == std::string::npos)
+    {
+        i = std::stoi(str) << fraction;
+        return;
+    }
+    int int_part = std::stoi(str.substr(0, pos));
+    int frac_part = std::stoi(str.substr(pos+1));
+    if (frac_part < 10)
+    {
+        i = (int_part << fraction) + ((frac_part << fraction) / 10);
+    }
+    else
+    {
+        i = (int_part << fraction) + ((frac_part << fraction) / std::pow(10, str.length() - pos - 1));
+    }
+}
