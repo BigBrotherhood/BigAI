@@ -1,33 +1,71 @@
 #pragma once
 
+/*------------------------------------- 42 --------------------------------------*/
+
 # include <map>
 # include <fstream>
 # include <iostream>
-# include "fixed.hpp"
 
-class data {
+/*-------------------------------------------------------------------------------*/
 
-private:
+namespace ft {
 
-    std::map<std::string, fixed> _mean;
-    std::map<std::string, fixed> _error;
-    std::map<std::string, fixed> _worst;
+    enum class mean {
 
-public:
+        radius = 1,
+        texture,
+        perimeter,
+        area,
+        smoothness,
+        compactness,
+        concavity,
+        concave_points,
+        symetry,
+        fractal_dimension
+    };
 
-    data(std::string);
-    ~data();
-};
+    enum class error {
+
+        radius = 11,
+        texture,
+        perimeter,
+        area,
+        smoothness,
+        compactness,
+        concavity,
+        concave_points,
+        symetry,
+        fractal_dimension
+    };
+
+    enum class worst {
+
+        radius = 21,
+        texture,
+        perimeter,
+        area,
+        smoothness,
+        compactness,
+        concavity,
+        concave_points,
+        symetry,
+        fractal_dimension
+    };
+}
+
+/*-------------------------------------------------------------------------------*/
 
 class dataset {
 
-private:
+private: 
 
-    std::map<std::string, data *> _set;
+    double _set[570][31];
 
 public:
 
-    dataset(std::string path);
+    dataset();
     ~dataset();
 
 };
+
+/*-------------------------------------------------------------------------------*/

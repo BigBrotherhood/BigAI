@@ -1,5 +1,5 @@
-NAME			:=	multilayet-perceptron
-NAME_PATH		:=	$(NAME)
+BDIR			:=	bin/
+NAME			:=	$(BDIR)multilayer-perceptron
 MAKEFLAGS		+=	--silent
 
 SDIR			:=	src/
@@ -9,23 +9,23 @@ ODIR			:=	obj/
 OBJ				:=	$(subst $(SDIR),$(ODIR), ${SRC:.cpp=.o})
 
 CC				:=	c++
-CFLG			:=	-Wall -Wextra -Werror
+CFLG			:=	-Wall -Wextra -Werror -std=c++20
 
 $(ODIR)%.o		: $(SDIR)%.cpp
 				mkdir -p $(subst $(SDIR),$(ODIR), $(shell dirname $<)/)
 				$(CC) $(CFLG) -c $< -o ${addprefix $(ODIR), ${<:$(SDIR)%.cpp=%.o}}
 
-${NAME_PATH}	: $(OBJ)
-				$(CC) $(OBJ) -o $(NAME_PATH)
-				# mkdir -p $(BIN)
+${NAME}			: $(OBJ)
+				mkdir -p $(BDIR)
+				$(CC) $(OBJ) -o $(NAME)
 
-all				: $(NAME_PATH)
+all				: $(NAME)
 
 clean			:
 				rm -rf $(ODIR)
 
 fclean			: clean
-				rm -rf $(NAME)
+				rm -rf $(BDIR)
 
 re				: fclean all
 

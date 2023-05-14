@@ -2,12 +2,9 @@
 
 void training() {
 
-    std::string path;
+    dataset data;
 
-    std::cout << "Please enter path to database: "; std::cin >> path;
     
-    dataset data(path);
-
 }
 
 void predict() {
@@ -19,13 +16,14 @@ void predict() {
 int main() {
 
     int choice = 2;
-
     while (choice != 0 && choice != 1) {
         std::cout << "Please choose between training phase (0) and prediction phase (1): "; std::cin >> choice;
     }
+
     if (choice)
         predict();
     else
         training();
+    // system("leaks multilayer-perceptron");
     return 0;
 }
