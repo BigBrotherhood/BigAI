@@ -1,0 +1,32 @@
+---------------------------------------         id: 0
+Mean radius: 1.13335
+Mean texture: -2.08269
+Mean perimeter: 1.26269
+Mean area: 0.985515
+Mean smoothness: 0.1184
+Mean compactness: 0.2776
+Mean concavity: 0.3001
+Mean concave points: 0.1471
+Mean symmetry: 0.2419
+Mean fractal dimension: 0.07871
+Standard error of radius: 1.095
+Standard error of texture: 0.9053
+Standard error of perimeter: 3.25441
+Standard error of area: 2.49016
+Standard error of smoothness: 0.006399
+Standard error of compactness: 0.04904
+Standard error of concavity: 0.05373
+Standard error of concave points: 0.01587
+Standard error of symmetry: 0.03003
+Standard error of fractal dimension: 0.006193
+Worst radius: 1.91437
+Worst texture: -1.34845
+Worst perimeter: 2.29149
+Worst area: 2.00151
+Worst smoothness: 0.1622
+Worst compactness: 0.6656
+Worst concavity: 0.7119
+Worst concave points: 0.2654
+Worst symmetry: 0.4601
+Worst fractal dimension: 0.1189
+---------------------------------------

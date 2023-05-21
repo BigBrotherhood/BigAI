@@ -3,6 +3,12 @@
 void training() {
 
     dataset data;
+    // double to_scale = 0.1184;
+
+    // double scaled = 0.0;
+
+    // scaled = (to_scale - 0.0) / (0.006399 - 0.0);
+    // std::cout << "scaled = " << scaled << std::endl;
 
     
 }

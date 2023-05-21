@@ -60,11 +60,21 @@ class dataset {
 private: 
 
     double _set[570][31];
+    double _norm[570][31];
+    double _mean[30] = {0.0}, _dev[30] = {0.0};
 
 public:
 
     dataset();
     ~dataset();
+    void normalize(int id);
+    void norm_mean_dev();
+    void init_set();
+    void print_norm(int id);
+    void print_set(int id);
+    void insert_features(int features, double number, int id);
+    void process_line (std::string line, int id);
+    void z_score_normalize(int id);
 
 };
 
