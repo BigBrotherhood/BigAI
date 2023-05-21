@@ -11,10 +11,10 @@ class data {
 private:
 
     std::map<std::string, double> _mean;
-    std::vector<std::string> _features;
     std::map<std::string, double> _error;
     std::map<std::string, double> _worst;
-    bool                         diagnosis;
+    std::vector<std::string>      _features;
+    bool                          diagnosis;
 
 public:
 
@@ -23,8 +23,7 @@ public:
     bool get_diagnosis() { return diagnosis; }
     double get_error(std::string);
     double get_worst(std::string);
-    // std::vector<std::string> get_features() { return _features; }
-    void insert_features(int features, double number);
+    void insert_features(int, double);
     void init_features();
     ~data();
 };
@@ -37,7 +36,7 @@ private:
 
 public:
 
-    dataset(std::string path);
+    dataset(std::string);
     ~dataset();
 
 };

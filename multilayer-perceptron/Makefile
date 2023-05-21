@@ -1,4 +1,4 @@
-NAME			:=	multilayet-perceptron
+NAME			:=	multilayer-perceptron
 NAME_PATH		:=	$(NAME)
 MAKEFLAGS		+=	--silent
 
