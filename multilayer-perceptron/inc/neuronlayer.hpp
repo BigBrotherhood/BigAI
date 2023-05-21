@@ -1,6 +1,6 @@
 #pragma once
 
-#include "neuron.hpp"
+#include "multilayer-perceptron.hpp"
 
 class neuronlayer
 {
@@ -12,11 +12,8 @@ class neuronlayer
         neuronlayer ();
         std::vector<neuron> get_neurons ();
         void set_neurons (std::vector<neuron> neurons);
+
+        std::string toString();
 };
 
-std::ostream &operator<<(std::ostream &out, neuronlayer &nl)
-{
-    for (size_t i = 0; i < nl.get_neurons().size(); i++)
-        std::cout << nl.get_neurons()[i];
-    return out;
-}
+std::ostream &operator<<(std::ostream &out, neuronlayer &nl);
