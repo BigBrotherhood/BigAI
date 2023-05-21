@@ -196,9 +196,9 @@ dataset::dataset() {
     //     print_id(i);
     // }
 
-  
     normalize(0);
-    // print_norm(0);
+    print_set(0);
+    print_norm(0);
 
     // for (int i = 1; i < 31; i++) {
     //     std::cout << "standard dev[" << i << "] " << _dev[i] << std::endl;
@@ -208,6 +208,25 @@ dataset::dataset() {
 
 }
 
+double dataset::get_set(int id, int feature) {
+
+    return _set[id][feature];
+}
+
+double dataset::get_norm(int id, int feature) {
+
+    return _norm[id][feature];
+}
+
+double dataset::get_mean(int feature) {
+
+    return _mean[feature];
+}
+
+double dataset::get_dev(int feature) {
+
+    return _dev[feature];
+}
 dataset::~dataset() {
 
 }
