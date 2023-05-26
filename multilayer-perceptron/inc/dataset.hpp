@@ -1,11 +1,7 @@
 #pragma once
 
-/*------------------------------------- 42 --------------------------------------*/
+#include "multilayer-perceptron.hpp"
 
-# include <map>
-# include <fstream>
-# include <iostream>
-# include <vector>
 /*-------------------------------------------------------------------------------*/
 
 namespace ft {
@@ -68,19 +64,20 @@ public:
 
     dataset();
     ~dataset();
-    void normalize(int id);
-    void norm_mean_dev();
-    void init_set();
-    void print_norm(int id);
-    void print_set(int id);
-    void insert_features(int features, double number, int id);
-    void process_line (std::string line, int id);
 
-    double get_set(int id, int feature);
-    double get_norm(int id, int feature);
-    double get_mean(int feature);
-    double get_dev(int feature);
+    void init_set();
+    void norm_mean_dev();
+    void normalize(int id);
+    void print_set(int id);
+    void print_norm(int id);
+    void process_line (std::string line, int id);
+    void insert_features(int features, double number, int id);
+
+    double get_dev(int feature) { return _dev[feature]; }
+    double get_mean(int feature) { return _mean[feature]; }
+    double get_set(int id, int feature) { return _set[id][feature]; }
+    double get_norm(int id, int feature) { return _norm[id][feature]; }
 
 };
 
-/*-------------------------------------------------------------------------------*/
+/*------------------------------------- 42 --------------------------------------*/
