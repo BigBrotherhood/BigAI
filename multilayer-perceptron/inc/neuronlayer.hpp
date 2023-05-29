@@ -8,14 +8,15 @@ class neuronlayer {
 
 private:
 
-    std::vector<neuron> neurons;
+    std::vector<neuron> _neurons;
 
 public:
 
-    neuronlayer (std::vector<neuron> neurons);
     neuronlayer ();
-    std::vector<neuron> get_neurons ();
-    void set_neurons (std::vector<neuron> neurons);
+    neuronlayer (std::vector<neuron> neurons);
+
+    std::vector<neuron> get_neurons () { return this->_neurons; }
+    void set_neurons (std::vector<neuron> neurons) { this->_neurons = neurons; }
 
     std::string toString();
 };

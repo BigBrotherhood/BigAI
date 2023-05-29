@@ -4,7 +4,7 @@
 
 neuronlayer::neuronlayer(std::vector<neuron> neurons) {
 
-    this->neurons = neurons;
+    this->_neurons = neurons;
 }
 
 neuronlayer::neuronlayer() {}
@@ -13,8 +13,8 @@ std::string neuronlayer::toString() {
 
     std::string str = "";
 
-    for (size_t i = 0; i < this->neurons.size(); i++)
-        str += this->neurons[i].toString();
+    for (size_t i = 0; i < this->_neurons.size(); i++)
+        str += this->_neurons[i].toString();
     return str;
 }
 
