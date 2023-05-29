@@ -52,7 +52,10 @@ int main() {
     int choice = 2;
 
     while (choice != 0 && choice != 1)
-        std::cout << "Please choose between training phase (0) and prediction phase (1): "; std::cin >> choice;
+    {
+        std::cout << "Please choose between training phase (0) and prediction phase (1): ";
+        std::cin >> choice;
+    }
 
     if (choice)
         predict();
