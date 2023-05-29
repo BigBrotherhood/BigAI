@@ -18,7 +18,7 @@ std::string neuronlayer::toString() {
     return str;
 }
 
-std::vector<double> neuronlayer::get_output_values() {
+std::vector<double> neuronlayer::getAllOutput() {
 
     std::vector<double> output_values;
 

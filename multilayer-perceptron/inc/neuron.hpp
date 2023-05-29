@@ -27,13 +27,7 @@ public:
     void set_bias (double bias) { this->bias = bias; }
     void set_error (double error) { this->error = error; }
     void set_delta (double delta) { this->delta = delta; }
-    void set_input (std::vector <double>input) { 
-        std::cout << "input size: " << input.size() << std::endl;
-        this->input.clear();
-        for(size_t i = 0; i < input.size(); i++)
-            this->input.push_back(input[i]);
-        std::cout << "this input size: " << this->input.size() << std::endl;
-    }
+    void set_input (std::vector <double>input) { this->input = input; }
     void set_output (double output) { this->output = output; }
     void set_weights (double weights) { this->weights = weights; }
     
