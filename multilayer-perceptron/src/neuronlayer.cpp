@@ -18,6 +18,15 @@ std::string neuronlayer::toString() {
     return str;
 }
 
+std::vector<double> neuronlayer::get_output_values() {
+
+    std::vector<double> output_values;
+
+    for (size_t i = 0; i < this->_neurons.size(); i++)
+        output_values.push_back(this->_neurons[i].get_output());
+    return output_values;
+}
+
 std::ostream &operator<<(std::ostream &out, neuronlayer &nl) {
     
     for (size_t i = 0; i < nl.get_neurons().size(); i++)

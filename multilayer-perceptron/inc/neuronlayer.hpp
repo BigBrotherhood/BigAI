@@ -18,6 +18,7 @@ public:
     std::vector<neuron> get_neurons () { return this->_neurons; }
     void set_neurons (std::vector<neuron> neurons) { this->_neurons = neurons; }
 
+    std::vector<double> get_output_values ();
     std::string toString();
 };
 

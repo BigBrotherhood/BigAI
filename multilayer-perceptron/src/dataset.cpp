@@ -21,9 +21,12 @@ dataset::dataset() {
 	//     print_id(i);
 	// }
 
-	normalize(0);
-	print_set(0);
-	print_norm(0);
+	for (int i = 0; i < 570; i++)
+	{
+		normalize(i);
+	}
+	//print_set(1);
+	//print_norm(1);
 
 	// for (int i = 1; i < 31; i++) {
 	//     std::cout << "standard dev[" << i << "] " << _dev[i] << std::endl;
@@ -173,9 +176,11 @@ void dataset::process_line (std::string line, int id) {
 
 	while (!ss.eof()) {
 		std::getline(ss, token, ',');
-		if (!count)
+		if (count == 1)
+		{
 			_set[id][0] = (token == "M" ? 0 : 1);
-		else {
+		}
+		else if (count) {
 			try { insert_features(count, stod(token), id); } 
 			catch (std::exception) {}
 		}

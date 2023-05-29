@@ -42,10 +42,6 @@ neuron::neuron() {
     this->weights = rand() / (double)RAND_MAX;
 }
 
-void neuron::calculate_output(std::vector <double> inputs) {
-    (void)inputs;
-}
-
 std::string neuron::toString() {
 
     std::string str = "";
