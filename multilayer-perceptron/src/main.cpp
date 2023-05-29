@@ -1,7 +1,7 @@
 #include "../inc/multilayer-perceptron.hpp"
 
-void outputToFile(std::string out, std::string path)
-{
+void outputToFile(std::string out, std::string path) {
+    
     std::ofstream outputFile(path);
     if (!outputFile.is_open()) {
 
@@ -12,8 +12,8 @@ void outputToFile(std::string out, std::string path)
     outputFile.close();
 }
 
-neuronlayer setInputLayer(dataset &data)
-{
+neuronlayer setInputLayer(dataset &data) {
+
     std::vector<neuron> neurons;
 
     for(int i = 1; i < 31; i++) {

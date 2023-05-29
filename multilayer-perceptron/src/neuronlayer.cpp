@@ -18,8 +18,8 @@ std::string neuronlayer::toString() {
     return str;
 }
 
-std::ostream &operator<<(std::ostream &out, neuronlayer &nl)
-{
+std::ostream &operator<<(std::ostream &out, neuronlayer &nl) {
+    
     for (size_t i = 0; i < nl.get_neurons().size(); i++)
         out << nl.get_neurons()[i];
     return out;
