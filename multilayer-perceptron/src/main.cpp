@@ -1,7 +1,7 @@
 #include "../inc/multilayer-perceptron.hpp"
 
-void outputToFile(std::string out, std::string path) {
-    
+void outputToFile(std::string out, std::string path)
+{
     std::ofstream outputFile(path);
     if (!outputFile.is_open()) {
 
@@ -12,15 +12,23 @@ void outputToFile(std::string out, std::string path) {
     outputFile.close();
 }
 
-neuronlayer setInputLayer(dataset &data) {
-
+neuronlayer setInputLayer(dataset &data)
+{
     std::vector<neuron> neurons;
 
     for(int i = 1; i < 31; i++) {
-
-        std::vector<double> weights(1, rand() / (double)RAND_MAX);
         std::vector<double> input(1, data.get_norm(0, i));
-        neurons.push_back(neuron(input, weights));
+        neurons.push_back(neuron(input));
+    }
+    return neuronlayer(neurons);
+}
+
+neuronlayer setHiddenLayer(neuronlayer &input_layer)
+{
+    std::vector<neuron> neurons;
+    (void)input_layer;
+    for (int i = 0; i < 15; i++) {
+        
     }
     return neuronlayer(neurons);
 }
@@ -29,6 +37,9 @@ void training() {
 
     dataset data;
     neuronlayer input_layer;
+    neuronlayer hidden_layer;
+    neuronlayer hideen_layer2;
+    neuronlayer output_layer;
 
     input_layer = setInputLayer(data);
     outputToFile(input_layer.toString(), "output3.txt");
