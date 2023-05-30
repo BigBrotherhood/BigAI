@@ -87,21 +87,31 @@ void processLayer(neuronlayer &layer, neuronlayer &last_layer)
 }
 
 
-void processGradientDescentToLayer(neuronlayer &layer, double prediction_correctness, double learning_rate, std::vector<double> softmaxvalues, int real_value)
+void processGradientDescentToLayer(std::vector<neuronlayer> &layers, double prediction_correctness, double learning_rate, std::vector<double> softmaxvalues, int real_value)
 {
-    for (size_t i = 0; i < layer.get_neurons().size(); i++) {
-            layer.get_neurons()[i].get_weights() -= learning_rate * prediction_correctness * softmaxvalues[real_value] * (1 - softmaxvalues[real_value]) * layer.get_neurons()[i].get_input()[j];
-        layer.get_neurons()[i].set_bias(layer.get_neurons()[i].get_bias() - learning_rate * prediction_correctness * softmaxvalues[real_value] * (1 - softmaxvalues[real_value]));
+    for (int i = 1; i < layers.size(); i++) {
+        for (size_t j = 0; j < layers[i].get_neurons().size(); j++) { // for each neuron in current layer
+            for (size_t k = 0; k < layers[i].get_neurons()[j].get_input().size(); k++) { // for each input to the current neuron
+                // Calculate the gradient of the loss with respect to the weight
+                double gradient = prediction_correctness * softmaxvalues[real_value] * (1 - softmaxvalues[real_value]) * layers[i].get_neurons()[j].get_input()[k];
+
+                // Update the weight
+                layers[i].get_neurons()[j].get_weights()[k] -= learning_rate * gradient;
+            }
+            // Update bias
+            layers[i].get_neurons()[i].set_bias(layers[i].get_neurons()[j].get_bias() - learning_rate * prediction_correctness * softmaxvalues[real_value] * (1 - softmaxvalues[real_value]));
+        }
     }
 }
 
 void training() {
 
     dataset data;
-    neuronlayer input_layer = initLayer(30);
-    neuronlayer hidden_layer = initLayer(15);
-    neuronlayer hideen_layer2 = initLayer(15);
-    neuronlayer output_layer = initLayer(2);
+    std::vector<neuronlayer> layers;
+    layers[0] = initLayer(30);
+    layers[1] = initLayer(15);
+    layers[2] = initLayer(15);
+    layers[3] = initLayer(2);
     double learning_rate = 0.01;
     double prediction_correctness; // 0 = incorrect, 1 = correct
     std::vector<double> softmaxvalues;
@@ -110,17 +120,14 @@ void training() {
     {
         std::cout << "\n" << std::endl;
 
-        setLayerInputFromData(input_layer, data, i);
-        processLayerOutput(input_layer);
-        processLayer(hidden_layer, input_layer);
-        processLayer(hideen_layer2, hidden_layer);
-        processLayer(output_layer, hideen_layer2);
-        softmaxvalues = softmax(output_layer.getAllOutput()); //[0] = malicieux, [1] = benin
+        setLayerInputFromData(layers[0], data, i);
+        processLayerOutput(layers[0]);
+        processLayer(layers[1], layers[0]);
+        processLayer(layers[2], layers[1]);
+        processLayer(layers[3], layers[2]);
+        softmaxvalues = softmax(layers[3].getAllOutput()); //[0] = malicieux, [1] = benin
         prediction_correctness = log_loss(softmaxvalues, data.get_set(i,0));
-        processGradientDescentToLayer(output_layer, prediction_correctness, learning_rate, softmaxvalues, data.get_set(i,0));
-        processGradientDescentToLayer(hideen_layer2, prediction_correctness, learning_rate, softmaxvalues, data.get_set(i,0));
-        processGradientDescentToLayer(hidden_layer, prediction_correctness, learning_rate, softmaxvalues, data.get_set(i,0));
-        processGradientDescentToLayer(input_layer, prediction_correctness, learning_rate, softmaxvalues, data.get_set(i,0));
+
         // outputToFile(input_layer.toString(), "output3.txt");
         std::cout << "Malicieux (0) = " << softmaxvalues[0] * 100 << "%" << std::endl;
         std::cout << "Benin (1) = " << softmaxvalues[1] * 100 << "%" <<std::endl;
@@ -149,6 +156,7 @@ int main() {
         predict();
     else
         training();
+    std::cout << "SEGFAULT" << std::endl;
 
     // system("leaks multilayer-perceptron");
     return 0;
